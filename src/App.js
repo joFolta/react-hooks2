@@ -22,8 +22,14 @@ class App extends Component {
         ></input>
 
         <ul>
-          <li>{text}</li>
-          <li>{checked.toString()}</li>
+          <li>
+            <label>Mirrored Text: </label>
+            {text}
+          </li>
+          <li>
+            <label>Checked: </label>
+            {checked.toString()}
+          </li>
         </ul>
       </section>
     );

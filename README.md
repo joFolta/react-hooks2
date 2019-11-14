@@ -1,6 +1,11 @@
 ## Check commit history for different iterations
 
-![Preview](/public//preview.png)
+![Preview](/public/preview.png)
+
+Video 3: Add State with the useState Hook to a React Function Component
+
+Following tutorial: "Reusable State and Effects with React Hooks"
+https://egghead.io/courses/reusable-state-and-effects-with-react-hooks
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
