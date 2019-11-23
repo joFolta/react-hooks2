@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 
 function App() {
-  // we define initial state as ""
-  const state = useState(""); // useState hook returns an array. we declare state as the array.
-  const text = state[0]; // first entry of array is inital state
-  const setText = state[1]; // second entry of array is f(x) to update the state
+  // array destructing to condense useState
+  const [text, setText] = useState("");
+  const [checked, setChecked] = useState(false);
 
-  const textState = useState(true); // useState hook returns an array. we declare state as the array.
-  const checked = textState[0]; // first entry of array is inital state
-  const setChecked = textState[1]; // second entry of array is f(x) to update the state
+  // // we define initial state as ""
+  // const state = useState(""); // useState hook returns an array. we declare state as the array.
+  // const text = state[0]; // first entry of array is inital state
+  // const setText = state[1]; // second entry of array is f(x) to update the state
+
+  // const textState = useState(true); // useState hook returns an array. we declare state as the array.
+  // const checked = textState[0]; // first entry of array is inital state
+  // const setChecked = textState[1]; // second entry of array is f(x) to update the state
   return (
     <section>
       <input
