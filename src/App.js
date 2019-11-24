@@ -1,32 +1,33 @@
 import React, { useState } from "react";
 
 function App() {
-  const [text, setText] = useState("");
-  const [checked, setChecked] = useState(false);
-  const handleTextChange = e => setText(e.target.value);
+  // state as {object} inside useState hook
+  // but problem... setState overwrites obj's other properties (need to merge the partialState with prevState as done automagically with Class states)
+  const [state, setState] = useState({ text: "", checked: false });
 
-  // const handleCheckboxToggle = e => setChecked(!checked);
-  // const handleCheckboxToggle = e => setChecked(e.target.checked);
-  // OR... takes in function with arg as prevState
-  const handleCheckboxToggle = e => setChecked(prevChecked => !prevChecked);
+  const handleTextChange = e => setState({ text: e.target.value });
+  const handleCheckboxToggle = e =>
+    setState(prevState => ({
+      checked: !prevState.checked
+    }));
 
   return (
     <section>
-      <input type="text" value={text} onChange={handleTextChange}></input>
+      <input type="text" value={state.text} onChange={handleTextChange}></input>
       <input
         type="checkbox"
-        checked={checked}
+        checked={state.checked}
         onChange={handleCheckboxToggle}
       ></input>
 
       <ul>
         <li>
           <label>Mirrored Text: </label>
-          {text}
+          {state.text}
         </li>
         <li>
           <label>Checked: </label>
-          {checked.toString()}
+          {state.checked.toString()}
         </li>
       </ul>
     </section>
