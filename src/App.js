@@ -5,19 +5,23 @@ function App() {
   // but problem... setState overwrites obj's other properties (need to merge the partialState with prevState as done automagically with Class states)
   const [state, setState] = useState({ text: "", checked: false });
 
-  const handleTextChange = e => setState({ text: e.target.value });
-  const handleCheckboxToggle = e =>
+  const mergeState = partialState =>
     setState(prevState => ({
-      checked: !prevState.checked
+      ...prevState,
+      ...partialState
     }));
 
   return (
     <section>
-      <input type="text" value={state.text} onChange={handleTextChange}></input>
+      <input
+        type="text"
+        value={state.text}
+        onChange={e => mergeState({ text: e.target.value })}
+      ></input>
       <input
         type="checkbox"
         checked={state.checked}
-        onChange={handleCheckboxToggle}
+        onChange={e => mergeState({ checked: !state.checked })}
       ></input>
 
       <ul>
