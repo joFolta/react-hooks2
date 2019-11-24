@@ -1,29 +1,22 @@
 import React, { useState } from "react";
 
 function App() {
-  // array destructing to condense useState
   const [text, setText] = useState("");
   const [checked, setChecked] = useState(false);
+  const handleTextChange = e => setText(e.target.value);
 
-  // // we define initial state as ""
-  // const state = useState(""); // useState hook returns an array. we declare state as the array.
-  // const text = state[0]; // first entry of array is inital state
-  // const setText = state[1]; // second entry of array is f(x) to update the state
+  // const handleCheckboxToggle = e => setChecked(!checked);
+  // const handleCheckboxToggle = e => setChecked(e.target.checked);
+  // OR... takes in function with arg as prevState
+  const handleCheckboxToggle = e => setChecked(prevChecked => !prevChecked);
 
-  // const textState = useState(true); // useState hook returns an array. we declare state as the array.
-  // const checked = textState[0]; // first entry of array is inital state
-  // const setChecked = textState[1]; // second entry of array is f(x) to update the state
   return (
     <section>
-      <input
-        type="text"
-        value={text}
-        onChange={e => setText(e.target.value)}
-      ></input>
+      <input type="text" value={text} onChange={handleTextChange}></input>
       <input
         type="checkbox"
         checked={checked}
-        onChange={e => setChecked(e.target.checked)}
+        onChange={handleCheckboxToggle}
       ></input>
 
       <ul>
